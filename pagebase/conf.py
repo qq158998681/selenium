@@ -1,17 +1,18 @@
 import configparser
-
+import os
 
 # 获取配置文件数据，并加入到driver
 
 def message_ini():
     # 读取ini文件
     config = configparser.ConfigParser()
-    a = config.read("../config/config.ini", encoding="utf-8")
+    config.read("./config/config.ini", encoding="utf-8")
     # 获取数据
     i = config.get("browser", "bro")
     j = config.get("address", "url")
+    k = config.get("driver_path", "path")
 
-    return i, j
+    return i, j, k
 
 
 if __name__ == '__main__':
