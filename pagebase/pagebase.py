@@ -12,7 +12,7 @@ class Base():
         a = conf.message_ini()
         bro = a[0]
         url = a[1]
-        driver_path= a[2]
+        driver_path = a[2]
         if bro == "chrome":
             self.driver = webdriver.Chrome(driver_path)
         elif bro == "firefix":
@@ -80,32 +80,6 @@ class Base():
 
     def quit(self):
         return self.driver.quit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':

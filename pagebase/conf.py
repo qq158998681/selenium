@@ -8,7 +8,7 @@ def message_ini():
     config = configparser.ConfigParser()
     config.read("./config/config.ini", encoding="utf-8")
     # 获取数据
-    i = config.get("browser", "bro")
+    i = config.get("browser", "browser")
     j = config.get("address", "url")
     k = config.get("driver_path", "path")
     l = config.get("log", "log")

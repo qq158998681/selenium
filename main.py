@@ -9,9 +9,6 @@ class Index():
         return 
 
 
-
-
-
 if __name__ == '__main__':
     a = Index()
     a.zhuce()
