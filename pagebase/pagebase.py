@@ -10,7 +10,9 @@ class Base():
         # 环境准备，将ini文件中的信息自动读取，并且处理
         # 读取浏览器信息，并选择对应的浏览器添加到driver中
         a = conf.message_ini()
-        bro, url, driver_path = a
+        bro = a[0]
+        url = a[1]
+        driver_path= a[2]
         if bro == "chrome":
             self.driver = webdriver.Chrome(driver_path)
         elif bro == "firefix":

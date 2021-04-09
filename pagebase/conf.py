@@ -11,8 +11,9 @@ def message_ini():
     i = config.get("browser", "bro")
     j = config.get("address", "url")
     k = config.get("driver_path", "path")
+    l = config.get("log", "log")
 
-    return i, j, k
+    return i, j, k, l
 
 
 if __name__ == '__main__':
