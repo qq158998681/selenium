@@ -1,33 +1,48 @@
 import sys
 from selenium import webdriver
+import runlog
 import conf
+
+
+# 该类为定位元素的公共方法
+
 
 class Base():
     driver = None
     url = ""
 
     def __init__(self):
+
+        self.log = runlog.RunLog()
         # 环境准备，将ini文件中的信息自动读取，并且处理
         # 读取浏览器信息，并选择对应的浏览器添加到driver中
-        a = conf.message_ini()
-        bro = a[0]
-        url = a[1]
-        driver_path = a[2]
-        if bro == "chrome":
-            self.driver = webdriver.Chrome(driver_path)
-        elif bro == "firefix":
-            self.driver = webdriver.Firefox(driver_path)
-        elif bro == "ie":
-            self.driver = webdriver.Ie(driver_path)
-        else:
-            print("您输入的浏览器信息有误,请检查并修改")
+        a = conf.MessageIni()
+        bro = a.browser()[0]
+        url = a.address()
+        driver_path = a.driver_path()
+        try:
+            if bro == "chrome":
+                self.driver = webdriver.Chrome(driver_path)
+            elif bro == "firefix":
+                self.driver = webdriver.Firefox(driver_path)
+            elif bro == "ie":
+                self.driver = webdriver.Ie(driver_path)
+            else:
+                print("您输入的浏览器信息有误,请检查并修改")
+                self.log.logCritical("您输入的浏览器信息有误")
+                sys.exit(0)
+        except Exception:
+            print("未知错误")
+            self.log.logCritical("未知错误")
             sys.exit(0)
+
 
         # 读取地址信息
         try:
             self.driver.get(url)
         except :
-            print("您输入的地址有误，请检查并修改")
+            print("您输入的测试地址无法识别，请检查并修改")
+            self.log.logCritical("您输入的测试地址无法识别")
             sys.exit(0)
 
     def id(self, ele):

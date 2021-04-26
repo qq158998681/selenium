@@ -1,4 +1,4 @@
-from pagebase.pagebase import Base
+from pagebase.selenium_public import Base
 
 
 class Index():
