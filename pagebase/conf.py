@@ -8,7 +8,7 @@ class MessageIni(object):
     def __init__(self):
         # 读取ini文件
         self.config = configparser.ConfigParser()
-        self.config.read("./config/config.ini", encoding="utf-8")
+        self.config.read("../config/config.ini", encoding="utf-8")
 
     def browser(self):
         # 读取浏览器相关设置
@@ -19,7 +19,7 @@ class MessageIni(object):
 
         return browser_type, current_browser, browser_port, browser_path
 
-    def address(self):
+    def test_address(self):
         # 读取测试地址
         url = self.config.get("address", "url")
         return url
@@ -38,6 +38,7 @@ class MessageIni(object):
         # 读取日志级别及日志地址
         log_level = self.config.get("log", "log_level")
         log_path = self.config.get("log", "log_path")
+        print(log_level)
         return log_path, log_level
 
     def email_address(self):
@@ -50,8 +51,9 @@ if __name__ == '__main__':
     a = MessageIni()
     # print(a.log())
     # print(a.browser())
-    print(a.driver_path())
+    # print(a.driver_path())
     # print(a.report_path())
     # print(a.address())
+    print(a.email_address)
 
 

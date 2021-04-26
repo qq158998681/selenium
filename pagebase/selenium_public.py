@@ -18,7 +18,7 @@ class Base():
         # 读取浏览器信息，并选择对应的浏览器添加到driver中
         a = conf.MessageIni()
         bro = a.browser()[0]
-        url = a.address()
+        url = a.test_address()
         driver_path = a.driver_path()
         try:
             if bro == "chrome":
