@@ -3,12 +3,11 @@ import conf
 import sys
 import traceback
 
-# 日志模块
-
 
 class RunLog():
 
     def __init__(self):
+        # 日志模块
         a = conf.MessageIni()
         b = a.log()
         c = a.browser()
