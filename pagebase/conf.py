@@ -1,5 +1,4 @@
 import configparser
-import os
 
 
 # 获取配置文件数据
@@ -9,13 +8,13 @@ class MessageIni(object):
     def __init__(self):
         # 读取ini文件
         self.config = configparser.ConfigParser()
-        self.config.read("../config/config.ini", encoding="utf-8")
+        self.config.read("./config/config.ini", encoding="utf-8")
 
     def browser(self):
         # 读取浏览器相关设置
         browser_type = self.config.get("browser", "browser_type")
         current_browser = self.config.get("browser", "current_browser")
-        browser_port = self.config.get("browser", "browser_port")
+        browser_port = self.config.get("browser", "browser_path")
         browser_path = self.config.get("browser", "browser_port")
 
         return browser_type, current_browser, browser_port, browser_path
