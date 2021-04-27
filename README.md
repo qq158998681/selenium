@@ -1,4 +1,4 @@
-# selenium
+# selenium自动化测试框架
 
 
 还欠缺： 测试报告模块 report、测试数据驱动 testdata
