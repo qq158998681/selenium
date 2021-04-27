@@ -39,6 +39,7 @@ class Base():
 
         # 读取地址信息
         try:
+            self.driver.implicitly_wait(30)
             self.driver.get(url)
         except :
             print("您输入的测试地址无法识别，请检查并修改")
