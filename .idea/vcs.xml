@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/report/BeautifulReport" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/report/BeautifulReport备份" vcs="Git" />
   </component>
 </project>

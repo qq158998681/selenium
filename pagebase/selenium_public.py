@@ -102,6 +102,7 @@ class Base():
 
 if __name__ == '__main__':
     a = Base()
+    a.quit()
 
 
 
