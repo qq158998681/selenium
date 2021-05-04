@@ -41,7 +41,6 @@ class MessageIni(object):
         # 读取日志级别及日志地址
         log_level = self.config.get("log", "log_level")
         log_path = self.config.get("log", "log_path")
-        print(log_level)
 
         return log_path, log_level
 
@@ -54,6 +53,13 @@ class MessageIni(object):
 
         return email_address, email_sender, email_sender_password, email_host
 
+    def test_data_excel(self):
+        # 读取测试数据的存放地址及目标sheet
+        test_data_path = self.config.get("test_data", "test_file_path")
+        test_file_sheet_name = self.config.get("test_data", "test_file_sheet_name")
+
+        return test_data_path, test_file_sheet_name
+
 
 if __name__ == '__main__':
     a = MessageIni()
@@ -61,7 +67,7 @@ if __name__ == '__main__':
     # print(a.browser())
     # print(a.driver_path())
     # print(a.report_path())
-    # print(a.address())
+    print(a.address())
     print(a.email_address)
 
 

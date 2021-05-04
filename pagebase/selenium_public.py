@@ -20,6 +20,8 @@ class Base():
         bro = a.browser()[0]
         url = a.test_address()
         driver_path = a.driver_path()
+        a = runlog.RunLog()
+        a.logInfo("读取配置文件driver信息成功")
         try:
             if bro == "chrome":
                 self.driver = webdriver.Chrome(driver_path)
