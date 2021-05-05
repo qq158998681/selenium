@@ -16,7 +16,7 @@ class RunLog():
                 filename="./" + b[0] + "{}.txt".format(c[0]),
                 filemode="a",
                 format="%(asctime)s-%(name)s-%(levelname)s-%(message)s-%(message)s",
-                level=logging.DEBUG
+                level=logging.INFO
 
             )
             logging.info("日志初始化成功,当前模式，debug")
@@ -40,23 +40,23 @@ class RunLog():
             sys.exit(0)
 
     def logDebug(self, message=None):
-        all_message = message + traceback.format_exc()
+        all_message = str(message) + traceback.format_exc()
         return logging.debug(all_message)
 
     def logInfo(self, message=None):
-        all_message = message + traceback.format_exc()
+        all_message = str(message) + traceback.format_exc()
         return logging.info(all_message)
 
     def logWarning(self, message=None):
-        all_message = message + traceback.format_exc()
+        all_message = str(message) + traceback.format_exc()
         return logging.warning(all_message)
 
     def logError(self, message=None):
-        all_message = message + traceback.format_exc()
+        all_message = str(message) + traceback.format_exc()
         return logging.error(all_message + traceback.format_exc())
 
     def logCritical(self,message=None):
-        all_message = message + traceback.format_exc()
+        all_message = str(message) + traceback.format_exc()
         return logging.critical(all_message + traceback.format_exc())
 
 

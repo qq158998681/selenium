@@ -50,8 +50,9 @@ class MessageIni(object):
         email_sender = self.config.get("email", "email_sender")
         email_sender_password = self.config.get("email", "email_sender_password")
         email_host = self.config.get("email", "email_host")
+        email_conf = self.config.get("email", "email_conf")
 
-        return email_address, email_sender, email_sender_password, email_host
+        return email_address, email_sender, email_sender_password, email_host, email_conf
 
     def test_data_excel(self):
         # 读取测试数据的存放地址及目标sheet
