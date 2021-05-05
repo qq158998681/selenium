@@ -8,7 +8,7 @@ class MessageIni(object):
     def __init__(self):
         # 读取ini文件
         self.config = configparser.ConfigParser()
-        self.config.read("../config/config.ini", encoding="utf-8")
+        self.config.read("./config/config.ini", encoding="utf-8")
 
     def browser(self):
         # 读取浏览器相关设置

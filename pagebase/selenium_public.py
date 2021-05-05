@@ -18,7 +18,7 @@ class Base():
         # 读取浏览器信息，并选择对应的浏览器添加到driver中
         a = conf.MessageIni()
         bro = a.browser()[0]
-        url = a.test_address()
+        ini_url = a.test_address()
         driver_path = a.driver_path()
         a = runlog.RunLog()
         a.logInfo("读取配置文件driver信息成功")
@@ -42,7 +42,12 @@ class Base():
         # 读取地址信息
         try:
             self.driver.implicitly_wait(30)
-            self.driver.get(url)
+            if self.url == "":
+                self.url = ini_url
+                self.driver.get(self.url)
+            elif self.url != "":
+                self.driver.get(self.url)
+
         except :
             print("您输入的测试地址无法识别，请检查并修改")
             self.log.logCritical("您输入的测试地址无法识别")
@@ -71,9 +76,6 @@ class Base():
 
     def tag_name(self, ele):
         return self.driver.find_element_by_tag_name(ele)
-
-    def ids(self, ele):
-        return self.driver.find_elements_by_id(ele)
 
     def class_names(self, ele):
         return self.driver.find_elements_by_class_name(ele)

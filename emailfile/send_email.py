@@ -1,4 +1,7 @@
 import smtplib
+import time
+from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pagebase import conf, runlog
 
@@ -17,15 +20,21 @@ class SendEmail():
         self.email_sender_password = em[2]
         self.email_host = em[3]
 
-    def send(self):
+    def send(self, ):
         # 邮件内容设置
-        message = MIMEText('测试发送邮件', 'plain', 'utf-8')
+        message = MIMEMultipart()
         # 邮件主题
-        message['Subject'] = '您好，邮件测试'
+        message['Subject'] = '您好，自动化测试已完成，请查看邮件附件获取详细信息'
         # 发送方信息
         message['From'] = self.email_sender
         # 接受方信息
         message['To'] = self.email_addressee
+        # 定义邮件附件
+        html_name = time.strftime("%Y-%m-%d", time.localtime()) + "测试报告"
+        htmlFile = './{}.html'.format(html_name)
+        htmlApart = MIMEApplication(open(htmlFile, 'rb').read())
+        htmlApart.add_header('Content-Disposition', 'attachment', filename=htmlFile)
+        message.attach(htmlApart)
 
         # 登录并发送邮件
         try:

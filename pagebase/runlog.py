@@ -13,7 +13,7 @@ class RunLog():
         c = a.browser()
         if b[1] == "0":
             logging.basicConfig(
-                filename=b[0] + "{}.txt".format(c[0]),
+                filename="./" + b[0] + "{}.txt".format(c[0]),
                 filemode="a",
                 format="%(asctime)s-%(name)s-%(levelname)s-%(message)s-%(message)s",
                 level=logging.DEBUG
